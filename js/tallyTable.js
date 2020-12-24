@@ -42,8 +42,6 @@ TallyTable.prototype.init = function(){
 TallyTable.prototype.update = function(){
   var self = this;
 
-  self.replicateSetTable.update("test")
-
   var highlighted_div = "#tally-highlighted"
   var selected_div = "#tally-selected"
 
@@ -91,6 +89,7 @@ TallyTable.prototype.update = function(){
 // TODO: IN VAR TABLESELECT, MAKE THE ID A VARIABLE INPUT
 
 TallyTable.prototype.makeTable = function() {
+  var self = this;
 var data, sort_by, filter_cols; // Customizable variables
 
 var table; // A reference to the main DataTable object
@@ -158,7 +157,13 @@ function _table(targetDiv) {
   // make the cells click-able
   $('#change_to_var_input').on('click', 'tbody td', function() {
       //get textContent of the TD
+      if(this.textContent.startsWith("CNAG")){
+        self.replicateSetTable.update(this.textContent);
+      }
+
       console.log('TD cell textContent : ', this.textContent)
+      //
+      console.log('full data : ', this)
       //get the value of the TD using the API
       console.log('value by API : ', table.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
   })

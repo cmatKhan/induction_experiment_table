@@ -39,8 +39,31 @@ SampleDetail.prototype.init = function(){
  * @param
  */
 
-SampleDetail.prototype.update = function(){
+SampleDetail.prototype.update = function(genotype, fastq_simplename){
     var self = this;
+
+    var igv_img_div_obj = [
+                           {file:genotype+'.png', div:"#perturbed-igv"},
+                           {file:"NAT.png", div:"#nat-igv"},
+                           {file:"G418.png",div:"#g418-igv"},
+                           {file: genotype+'_control.png', div: "#wt-igv"}
+                         ];
+
+    igv_img_div_obj.forEach((igv_img_info, i) => {
+      console.log(createIframeElement(fastq_simplename,igv_img_info.file ))
+        $(igv_img_info.div).empty();
+        $(".igv-heading").removeClass("disable");
+        $(igv_img_info.div).append(createIframeElement(fastq_simplename,igv_img_info.file ));
+    });
+
+
+    function createIframeElement(fastq_simplename, img_filepath){
+      var path = 'data/igv_20201222_124223/'+fastq_simplename+'/'+img_filepath
+
+      return '<iframe src="'+path+'" width="400" height="500"></iframe>'
+
+    }
+
 
 
 };

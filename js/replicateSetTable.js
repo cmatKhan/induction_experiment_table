@@ -4,9 +4,10 @@
  *
  * replace all "VisTemplate" with name of object
  */
-function ReplicateSetTable(){
+function ReplicateSetTable(sampleDetail){
 
     var self = this;
+    self.sampleDetail = sampleDetail;
     self.init();
 
 }; // end constructor
@@ -41,17 +42,18 @@ ReplicateSetTable.prototype.init = function(){
 
 ReplicateSetTable.prototype.update = function(genotype){
     var self = this;
+    self.genotype = genotype;
+    $("#replicate-set-table").empty()
 
     var highlighted_div = "#replicate-set-highlighted"
     var selected_div = "#replicate-set-selected"
-    console.log(csv_path)
-    var csv_path = "data/split_by_genotype/CNAG_00031.csv" // create from passed genotype, which is passed from tallyTable
+
+    var csv_path = "data/split_by_genotype/"+genotype+".csv" // create from passed genotype, which is passed from tallyTable
     console.log(csv_path)
       // cite: http://bl.ocks.org/tompiler/8295e192447d4afb90046873dac98745
       d3.csv(csv_path, function(error, data) {
         if (error) {
           console.error("ERROR!");
-          throw error;
         }
         console.log(data)
         var table_plot = self.makeTable()
@@ -88,6 +90,7 @@ ReplicateSetTable.prototype.update = function(genotype){
  */
 
 ReplicateSetTable.prototype.makeTable = function() {
+  var self = this;
 	var data, sort_by, filter_cols; // Customizable variables
 
 	var table; // A reference to the main DataTable object
@@ -154,10 +157,12 @@ ReplicateSetTable.prototype.makeTable = function() {
 
     // make the cells click-able
     $('#change_to_var_input_rep').on('click', 'tbody td', function() {
-        //get textContent of the TD
-        console.log('TD cell textContent : ', this.textContent)
-        //get the value of the TD using the API
-        console.log('value by API : ', table.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
+        if(this.textContent.endsWith(".fastq.gz")){
+          ckf44_genotype = self.genotype.replace("CNAG", "CKF44")
+          var fastq_simplename = this.textContent.replace(".fastq.gz", "");
+          self.sampleDetail.update(ckf44_genotype, fastq_simplename)
+
+        }
     })
 
 

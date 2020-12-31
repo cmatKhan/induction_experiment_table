@@ -67,7 +67,7 @@ ReplicateSetTable.prototype.update = function(genotype){
         table_plot.on('highlight', function(data, on_off){
           if(on_off){//if the data is highlighted
           	d3.select(highlighted_div).text(
-          		'Oops, I just stepped over gene ' + data.genotype1
+          		'Oops, I just stepped over gene ' + data.GENOTYPE1
           	);
           }
         });
@@ -75,7 +75,7 @@ ReplicateSetTable.prototype.update = function(genotype){
         table_plot.on('select', function(data, on_off){
           if(on_off){//if the data is highlighted
           	d3.select(selected_div).text(
-          		'And it was the chosen one ' + data.strain
+          		'And it was the chosen one ' + data.STRAIN
           	);
           }
         });

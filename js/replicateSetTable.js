@@ -48,7 +48,7 @@ ReplicateSetTable.prototype.update = function(genotype){
     var highlighted_div = "#replicate-set-highlighted"
     var selected_div = "#replicate-set-selected"
 
-    var csv_path = "data/split_by_genotype/"+genotype+".csv" // create from passed genotype, which is passed from tallyTable
+    var csv_path = "data/split_by_genotype_20210121/"+genotype+".csv" // create from passed genotype, which is passed from tallyTable
     console.log(csv_path)
       // cite: http://bl.ocks.org/tompiler/8295e192447d4afb90046873dac98745
       d3.csv(csv_path, function(error, data) {

@@ -45,7 +45,7 @@ TallyTable.prototype.update = function(){
   var highlighted_div = "#tally-highlighted"
   var selected_div = "#tally-selected"
 
-  var csv_path = "data/genotype_tally_summary.csv" // create from passed genotype, which is passed from tallyTable
+  var csv_path = "data/genotype_tally_summary_20210121.csv" // create from passed genotype, which is passed from tallyTable
 
     // cite: http://bl.ocks.org/tompiler/8295e192447d4afb90046873dac98745
     d3.csv(csv_path, function(error, data) {

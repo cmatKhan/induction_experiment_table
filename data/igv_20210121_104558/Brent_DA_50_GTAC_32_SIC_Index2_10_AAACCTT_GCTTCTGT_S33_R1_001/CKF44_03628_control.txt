@@ -1,0 +1,12 @@
+new
+snapshotDirectory /scratch/mblab/chasem/rnaseq_pipeline/reports/igv_20210228_183231/Brent_DA_50_GTAC_32_SIC_Index2_10_AAACCTT_GCTTCTGT_S33_R1_001
+genome /scratch/mblab/chasem/rnaseq_pipeline/genome_files/KN99/KN99_stranded.genome
+maxPanelHeight 500
+preference SAM.COLOR_BY READ_STRAND
+load /scratch/mblab/chasem/rnaseq_pipeline/wt_references/run_1028_s_4_withindex_sequence_GAGGCGT_sorted_aligned_reads_with_annote.bam
+goto CP022322.1:383855-387500
+sort position
+collapse
+snapshot CKF44_03628_control.png
+exit
+

@@ -6,6 +6,7 @@
     <title>90minuteInduction - 2016 Grant Summary Set</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/d3-tip.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://d3js.org/d3.v4.js"></script>
 </head>
@@ -14,9 +15,47 @@
 
   <main>
     <div class="container-fluid">
-
+      <div id='tally-row' class="row">
+        <div class="col">
+          <div id='tally-highlighted'>Nothing Highlighted</div>
+          <div id='tally-selected'>Nothing Selected</div>
+          <div id='tally-table'></div>
+        </div>
+      </div>
+      <div id='replicate-set-row' class="row">
+        <div class="col">
+          <div id='replicate-set-highlighted'>Nothing Highlighted</div>
+          <div id='replicate-set-selected'>Nothing Selected</div>
+          <div id='replicate-set-table'></div>
+        </div>
+      </div>
+      <div id='igv-row' class="row">
+        <div class='col-3'>
+          <h5 class="igv-heading disable">Perturbed</h5>
+          <div id="perturbed-igv"></div>
+        </div>
+        <div class='col-3'>
+          <h5 class="igv-heading disable">NAT</h5>
+          <div id="nat-igv"></div>
+        </div>
+        <div class='col-3'>
+          <h5 class="igv-heading disable">G418</h5>
+          <div id="g418-igv"></div>
+        </div>
+        <div class='col-3'>
+          <h5 class="igv-heading disable">Wildtype</h5>
+          <div id="wt-igv"></div>
+        </div>
+      </div>
+      <div id='replicate-violion-row' class="row">
+        <div id="violin-plot"></div>
+      </div>
     </div> <!-- end container fluid -->
   </main>
+
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -28,7 +67,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
-    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="js/d3-tip.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
     <script type="application/javascript" src="js/tallyTable.js"></script>
@@ -39,3 +78,4 @@
 </body>
 
 </html>
+

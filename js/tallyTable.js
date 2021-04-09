@@ -161,11 +161,6 @@ function _table(targetDiv) {
         self.replicateSetTable.update(this.textContent);
       }
 
-      console.log('TD cell textContent : ', this.textContent)
-      //
-      console.log('full data : ', this)
-      //get the value of the TD using the API
-      console.log('value by API : ', table.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
   })
 
 }

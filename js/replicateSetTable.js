@@ -49,13 +49,11 @@ ReplicateSetTable.prototype.update = function(genotype){
     var selected_div = "#replicate-set-selected"
 
     var csv_path = "data/split_by_genotype/"+genotype+".csv" // create from passed genotype, which is passed from tallyTable
-    console.log(csv_path)
       // cite: http://bl.ocks.org/tompiler/8295e192447d4afb90046873dac98745
       d3.csv(csv_path, function(error, data) {
         if (error) {
           console.error("ERROR!");
         }
-        console.log(data)
         var table_plot = self.makeTable()
                           .datum(data)
                           //.sortBy('pval', true)
@@ -161,6 +159,7 @@ ReplicateSetTable.prototype.makeTable = function() {
           ckf44_genotype = self.genotype.replace("CNAG", "CKF44")
           var fastq_simplename = this.textContent.replace(".fastq.gz", "");
           self.sampleDetail.update(ckf44_genotype, fastq_simplename)
+          console.log("clicked: ", fastq_simplename)
 
         }
     })

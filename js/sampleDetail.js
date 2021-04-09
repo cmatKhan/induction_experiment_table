@@ -50,7 +50,6 @@ SampleDetail.prototype.update = function(genotype, fastq_simplename){
                          ];
 
     igv_img_div_obj.forEach((igv_img_info, i) => {
-      console.log(createIframeElement(fastq_simplename,igv_img_info.file ))
         $(igv_img_info.div).empty();
         $(".igv-heading").removeClass("disable");
         $(igv_img_info.div).append(createIframeElement(fastq_simplename,igv_img_info.file ));
@@ -59,7 +58,6 @@ SampleDetail.prototype.update = function(genotype, fastq_simplename){
 
     function createIframeElement(fastq_simplename, img_filepath){
       var path = 'data/igv/'+fastq_simplename+'/'+img_filepath
-      console.log(path)
 
       return '<iframe src="'+path+'" width="400" height="500"></iframe>'
 

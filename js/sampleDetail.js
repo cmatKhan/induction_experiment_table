@@ -41,6 +41,7 @@ SampleDetail.prototype.init = function(){
 
 SampleDetail.prototype.update = function(genotype, fastq_simplename){
     var self = this;
+    console.log("in sample detail, need to display igv shot")
 
     var igv_img_div_obj = [
                            {file:genotype+'.png', div:"#perturbed-igv"},

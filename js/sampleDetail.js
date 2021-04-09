@@ -59,6 +59,7 @@ SampleDetail.prototype.update = function(genotype, fastq_simplename){
 
     function createIframeElement(fastq_simplename, img_filepath){
       var path = 'data/igv/'+fastq_simplename+'/'+img_filepath
+      console.log(path)
 
       return '<iframe src="'+path+'" width="400" height="500"></iframe>'
 
